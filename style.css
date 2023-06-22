@@ -1,0 +1,46 @@
+body {
+  background-color: black;
+  position: inherit;
+  text-align: center;
+}
+
+.gameName,
+.user-move-block,
+.js-stats,
+.js-winner,
+.current-move {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.reset-score {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.userMove {
+  margin-top: 20px;
+}
+
+.resetScore,
+.userMove {
+  background-color: yellow;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.js-winner,
+.js-stats,
+.current-move {
+  color: yellow;
+  font-size: 20px;
+}
+
+.gameName {
+  color: yellow;
+  font-size: 24px;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <p class="gameName">Rock-Paper-Scissor Game</p>
+    <div class="user-move-block">
+      <button class="userMove" onclick="
+        winner('rock');
+      ">Rock</button>
+
+      <button class="userMove" onclick="
+        winner('paper');
+      ">Paper</button>
+
+      <button class="userMove" onclick="
+        winner('scissors');
+      ">Scissors</button>
+    </div>
+
+    <p class="js-stats"></p>
+
+    <p class="current-move"></p>
+
+    <p class="js-winner"></p>
+
+    <div class="reset-score">
+      <button class="resetScore" onclick="resetScore();">
+        Reset Score
+      </button>
+    </div>
+
+    <script>
+
+      const score = JSON.parse(localStorage.getItem('score'));
+      
+      let result = '';
+
+      function winner(userMove) 
+      {
+        const computerMove = computerPick();
+
+        if (userMove === 'rock') 
+        {
+          if (computerMove === 'rock') 
+          {
+            score.draws++;
+            result = 'draw';
+          }
+          else if (computerMove === 'paper')
+          {
+            score.losses++;
+            result = 'lose';
+          }
+          else if (computerMove === 'scissors')
+          {
+            score.wins++;
+            result = 'win';
+          }
+        }
+        else if (userMove === 'paper') 
+        {
+          if (computerMove === 'rock')
+          {
+            score.wins++;
+            result = 'win';
+          }
+          else if (computerMove === 'paper')
+          {
+            score.draws++;
+            result = 'draw';
+          }
+          else if (computerMove === 'scissors')
+          {
+            score.losses++;
+            result = 'lose';
+          }
+        }
+        else if (userMove === 'scissors')
+        {
+          if (computerMove === 'rock')
+          {
+            score.losses++;
+            result = 'lose';
+          }
+          else if (computerMove === 'paper')
+          {
+            score.wins++;
+            result = 'win';
+          }
+          else if (computerMove === 'scissors')
+          {
+            score.draws++;
+            result = 'draw';
+          }
+        }
+        updateScoreElement();
+        
+        document.querySelector('.current-move').innerHTML = 'You: ' + userMove + ' Computer: ' + computerMove
+
+        document.querySelector('.js-winner').innerHTML = `Result: ${result}`
+
+        localStorage.setItem('score', JSON.stringify(score));
+        return userMove;
+      }
+
+      document.querySelector('.js-stats').innerHTML = 'Wins: ' + score.wins + ', Loses: ' + score.losses + ', Draws: ' + score.draws + '.';
+
+      function updateScoreElement() {
+        document.querySelector('.js-stats').innerHTML = 'Wins: ' + score.wins + ', Loses: ' + score.losses + ', Draws: ' + score.draws + '.';
+      }
+
+      function computerPick() {
+        const randomNumber = Math.random();
+
+        let computer_pick = '';
+
+        if (randomNumber < 1 / 3) 
+        {
+          computer_pick = 'rock';
+        }
+        else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3)
+        {
+          computer_pick = 'paper';
+        }
+        else
+        {
+          computer_pick = 'scissors';
+        }
+        return computer_pick;
+      }
+
+      function resetScore() {
+        score.wins = 0;
+        score.losses = 0;
+        score.draws = 0;
+        updateScoreElement();
+        document.querySelector('.current-move').innerHTML = ''
+      }
+    </script>
+  </body>
+</html>
