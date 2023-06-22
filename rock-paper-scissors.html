@@ -8,15 +8,18 @@
     <p class="gameName">Rock-Paper-Scissor Game</p>
     <div class="user-move-block">
       <button class="userMove" onclick="
-        winner('rock');
+        userMove = 'rock';
+        winner(userMove);
       ">Rock</button>
 
       <button class="userMove" onclick="
+        userMove = 'paper';
         winner('paper');
       ">Paper</button>
 
       <button class="userMove" onclick="
-        winner('scissors');
+        userMove = 'scissors';
+        winner(userMove);
       ">Scissors</button>
     </div>
 
@@ -34,7 +37,11 @@
 
     <script>
 
-      const score = JSON.parse(localStorage.getItem('score'));
+      let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0,
+        draws: 0
+      };
       
       let result = '';
 

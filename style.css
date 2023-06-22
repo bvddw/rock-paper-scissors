@@ -13,6 +13,10 @@ body {
   margin-bottom: 10px;
 }
 
+.userMove {
+  z-index: 100;
+}
+
 .reset-score {
   text-align: center;
   margin-top: 100px;
