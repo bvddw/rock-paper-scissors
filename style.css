@@ -1,20 +1,29 @@
 body {
-  background-color: black;
+  background-color: rgb(16, 16, 16);
   position: inherit;
   text-align: center;
 }
 
-.gameName,
-.user-move-block,
+.gameName {
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+}
+
 .js-stats,
-.js-winner,
 .current-move {
   text-align: center;
   margin-bottom: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
 }
 
-.userMove {
-  z-index: 100;
+.js-winner {
+  text-align: center;
+  margin-bottom: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 27px;
+  font-weight: bold;
 }
 
 .reset-score {
@@ -22,13 +31,8 @@ body {
   margin-top: 100px;
 }
 
-.userMove {
-  margin-top: 20px;
-}
-
-.resetScore,
-.userMove {
-  background-color: yellow;
+.resetScore{
+  background-color: rgb(255, 255, 255);
   font-size: 20px;
   font-weight: bold;
   padding: 10px 10px;
@@ -37,14 +41,29 @@ body {
   cursor: pointer;
 }
 
-.js-winner,
-.js-stats,
-.current-move {
-  color: yellow;
-  font-size: 20px;
+.user-move-block {
+  vertical-align: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.gameName {
-  color: yellow;
-  font-size: 24px;
+.userMove {
+  cursor: pointer;
+  border-width: 1px;
+  height: 100px;
+  width: 100px;
+  margin-right: 20px;
+  border-color: white;
+  border-radius: 50px;
+  border-style: solid;
+  background-color: rgb(16, 16, 16);
+}
+
+.userMove-icon {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(16, 16, 16);
+  border-width: 2px;
+  border-radius: 50px;
+  cursor: pointer;
 }

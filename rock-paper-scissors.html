@@ -10,24 +10,24 @@
       <button class="userMove" onclick="
         userMove = 'rock';
         winner(userMove);
-      ">Rock</button>
+      "><img class="userMove-icon" src="images/rock-emoji.png"></button>
 
       <button class="userMove" onclick="
         userMove = 'paper';
         winner('paper');
-      ">Paper</button>
+      "><img class="userMove-icon" src="images/paper-emoji.png"></button>
 
       <button class="userMove" onclick="
         userMove = 'scissors';
         winner(userMove);
-      ">Scissors</button>
+      "><img class="userMove-icon" src="images/scissors-emoji.png"></button>
     </div>
 
-    <p class="js-stats"></p>
+    <p class="js-winner"></p>
 
     <p class="current-move"></p>
 
-    <p class="js-winner"></p>
+    <p class="js-stats"></p>
 
     <div class="reset-score">
       <button class="resetScore" onclick="resetScore();">
@@ -105,7 +105,7 @@
         }
         updateScoreElement();
         
-        document.querySelector('.current-move').innerHTML = 'You: ' + userMove + ' Computer: ' + computerMove
+        document.querySelector('.current-move').innerHTML = `You: <img class="userMove-icon" src="images/${userMove}-emoji.png"> Computer: <img class="userMove-icon" src="images/${computerMove}-emoji.png">`
 
         document.querySelector('.js-winner').innerHTML = `Result: ${result}`
 
