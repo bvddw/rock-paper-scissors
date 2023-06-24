@@ -31,7 +31,12 @@ body {
   margin-top: 100px;
 }
 
-.resetScore{
+.auto-play {
+  margin-top: 20px;
+}
+
+.resetScore,
+.auto-play-button {
   background-color: rgb(255, 255, 255);
   font-size: 20px;
   font-weight: bold;

@@ -35,6 +35,10 @@
       </button>
     </div>
 
+    <div class="auto-play">
+      <button class="auto-play-button" onclick="autoPlayFunc();">Auto Play</button>
+    </div>
+
     <script>
 
       let score = JSON.parse(localStorage.getItem('score')) || {
@@ -43,6 +47,10 @@
         draws: 0
       };
       
+      let autoPlaying = false;
+
+      let intervalId;
+
       let result = '';
 
       function winner(userMove) 
@@ -146,6 +154,23 @@
         updateScoreElement();
         document.querySelector('.current-move').innerHTML = ''
         document.querySelector('.js-winner').innerHTML = ''
+      }
+
+      function autoPlayFunc() {
+        if (!autoPlaying){
+          intervalId = setInterval(function() {
+          const userMove = computerPick();
+          winner(userMove);
+        }, 1000);
+        autoPlaying = true;
+        document.querySelector('.auto-play-button').innerHTML = 'Stop Auto Play';
+        } else {
+          clearInterval(intervalId);
+          autoPlaying = false;
+          document.querySelector('.auto-play-button').innerHTML = 'Auto Play';
+        }
+
+        
       }
     </script>
   </body>
